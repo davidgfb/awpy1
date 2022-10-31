@@ -13,14 +13,11 @@ for a in NAV["de_dust2"]:
             tuple(position_transform("de_dust2", b, "x") for b in\
                   (area["southEastX"], area["northWestX"])),\
             tuple(position_transform("de_dust2", b, "y") for b in\
-                  (area["southEastY"], area["northWestY"]))
-    width, height = area["southEastX"] - area["northWestX"],\
-                    area["northWestY"] - area["southEastY"]
-    southwest_x, southwest_y = area["northWestX"],\
-                               area["southEastY"]
-    rect = Rectangle((southwest_x,southwest_y), width, height,\
-                     linewidth=1, edgecolor="yellow",\
-                     facecolor="None")
+                  (area["southEastY"], area["northWestY"]))                    
+    aNWX, aSEY = area["northWestX"], area["southEastY"]
+    rect = Rectangle((aNWX, aSEY), area["southEastX"] - aNWX,\
+                     area["northWestY"] - aSEY, linewidth = 1,\
+                     edgecolor = "yellow", facecolor = "None")
     ax.add_patch(rect)
 
 show()
