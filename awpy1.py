@@ -6,8 +6,10 @@ from matplotlib.pyplot import show
 f, ax = plot_map(map_name = "de_dust2", map_type = 'simpleradar',\
                  dark = True)
 
-for a in NAV["de_dust2"]:
-    area = NAV["de_dust2"][a]
+b = NAV["de_dust2"]
+
+for a in b:
+    area = b[a]
     (area["southEastX"], area["northWestX"]),\
                     (area["southEastY"], area["northWestY"]) =\
             tuple(position_transform("de_dust2", b, "x") for b in\
