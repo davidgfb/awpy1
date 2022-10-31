@@ -4,10 +4,11 @@ from matplotlib.patches import Rectangle
 from awpy.analytics.nav import area_distance
 from matplotlib.pyplot import show
 
+nM = 'de_dust2'
 geodesic_dist, (f, ax), nsAs = area_distance(\
-    map_name = "de_dust2", area_a = 152, area_b = 8970,\
-    dist_type = "geodesic"), plot_map(map_name = "de_dust2",\
-    map_type = 'simpleradar', dark = True), NAV["de_dust2"]
+    map_name = nM, area_a = 152, area_b = 8970,\
+    dist_type = "geodesic"), plot_map(map_name = nM,\
+    map_type = 'simpleradar', dark = True), NAV[nM]
 
 def getAreas():
     return area["northWestX"], area["southEastY"],\
@@ -18,9 +19,9 @@ for nA in nsAs:
     aNWX, aSEY, aNWY, aSEX = getAreas()
     (area["southEastX"], area["northWestX"]),\
                     (area["southEastY"], area["northWestY"]) =\
-            tuple(position_transform("de_dust2", b, "x") for b in\
+            tuple(position_transform(nM, b, "x") for b in\
                   (aSEX, aNWX)),\
-            tuple(position_transform("de_dust2", b, "y") for b in\
+            tuple(position_transform(nM, b, "y") for b in\
                   (aSEY, aNWY))
     color = "None"
 
