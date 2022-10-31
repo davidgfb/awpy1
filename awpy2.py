@@ -4,17 +4,14 @@ from matplotlib.patches import Rectangle
 from awpy.analytics.nav import area_distance
 from matplotlib.pyplot import show
 
-f, ax = plot_map(map_name = "de_dust2", map_type = 'simpleradar',\
-                 dark = True)
+(f, ax), nsAs, graph_dist = plot_map(map_name = "de_dust2",\
+    map_type = 'simpleradar', dark = True), NAV["de_dust2"],\
+    area_distance(map_name = "de_dust2", area_a = 152,\
+    area_b = 8970, dist_type = "graph")
 
 def getAreas():
     return area["northWestX"], area["southEastY"],\
            area["northWestY"], area["southEastX"]
-
-nsAs, graph_dist = NAV["de_dust2"], area_distance(map_name =\
-                                    "de_dust2", area_a = 152,\
-                                    area_b = 8970,\
-                                    dist_type = "graph")
 
 for nA in nsAs:
     area = nsAs[nA]
